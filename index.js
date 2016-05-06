@@ -41,7 +41,7 @@ app.get('/api/v1/parcel', function(req, res) {
    if (req.query.apikey === process.env.apiKey) {
     pg.connect(process.env.HEROKU_POSTGRESQL_GOLD_URL, function(err, client, done) {
             
-            client.query('SELECT address, parid FROM pva_parcels WHERE address ILIKE \'%' + req.query.address + '%\';',function(err, result) {
+            client.query('SELECT address, parid FROM pva_parcels WHERE address ILIKE \'%' + req.query.address + '%\' LIMIT 10;',function(err, result) {
                     done();
                     if (err) {
                         res.json({"success": false,"results": err});
