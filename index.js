@@ -38,7 +38,7 @@ app.use(function(req, res, next) {
 
 //test
 app.get('/api/v1/parcel', function(req, res) {
-   if (req.query.apikey = process.env.apiKey) {
+   if (req.query.apikey === process.env.apiKey) {
     pg.connect(process.env.HEROKU_POSTGRESQL_GOLD_URL, function(err, client, done) {
             client.query('SELECT * FROM pva_parcels WHERE address ILIKE \'%' + req.query.address + '%\';',function(err, result) {
                     done();
@@ -50,6 +50,7 @@ app.get('/api/v1/parcel', function(req, res) {
                 });
     });
     }
+
     else {
         res.sendStatus(403).json({"success" : "false", "response" : "Api key is incorrect."})
     }
