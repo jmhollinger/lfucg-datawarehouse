@@ -36,12 +36,15 @@ app.use(function(req, res, next) {
     next();
 });
 
-//test
-app.get('/api/v1/parcel', function(req, res) {
+//Police
+app.get('/api/v1/police', function(req, res) {
    if (req.query.apikey === process.env.apiKey) {
-    pg.connect(process.env.HEROKU_POSTGRESQL_GOLD_URL, function(err, client, done) {
+    pg.connect(process.env.DATABASE_URL, function(err, client, done) {
             
-            client.query('SELECT address, parid FROM pva_parcels WHERE address ILIKE \'%' + req.query.address + '%\' LIMIT 10;',function(err, result) {
+            client.query({
+                    text: 'SELECT * FROM police_cases WHERE last_updated >= $1 ORDER BY last_updated DESC;',
+                    values: ['\'' + req.query.lastupdated + '\'']
+                },function(err, result) {
                     done();
                     if (err) {
                         res.json({"success": false,"results": err});
@@ -53,7 +56,7 @@ app.get('/api/v1/parcel', function(req, res) {
     }
 
     else {
-        res.sendStatus(403).json({"success" : "false", "response" : "Api key is incorrect."})
+        res.sendStatus(403).json({"success" : "false", "results" : "API Key is invalid."})
     }
 })
 
