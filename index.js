@@ -2,11 +2,8 @@
 var express = require('express');
 var pg = require('pg');
 var bodyParser = require('body-parser');
-var helmet = require('helmet');
 
 var app = express();
-
-app.use(helmet())
 
 var https_redirect = function(req, res, next) {
     if (process.env.NODE_ENV === 'production') {
@@ -21,8 +18,6 @@ var https_redirect = function(req, res, next) {
 };
 
 app.use(https_redirect);
-
-app.enable('trust proxy')
 
 app.use(bodyParser.json({
     extended: false
