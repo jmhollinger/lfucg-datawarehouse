@@ -25,12 +25,6 @@ app.use(bodyParser.json({
 
 app.set('view engine', 'jade');
 
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
-
 //Police
 app.get('/api/v1/police', function(req, res) {
    if (req.query.apikey === process.env.apiKey) {
@@ -51,7 +45,7 @@ app.get('/api/v1/police', function(req, res) {
     }
 
     else {
-        res.sendStatus(403).json({"success" : "false", "results" : "API Key is invalid."})
+        res.json({"success" : "false", "results" : "API Key is invalid."})
     }
 })
 
