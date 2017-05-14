@@ -27,7 +27,7 @@ app.set('view engine', 'jade');
 
 //Police
 app.get('/api/v1/police', function(req, res) {
-   if (req.query.apikey === process.env.API_KEY) {
+   if (req.header.API_KEY === process.env.API_KEY) {
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
             
             client.query({
