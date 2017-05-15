@@ -22,21 +22,11 @@ html(lang='en')
         p Returns police cases that occured on or after a supplied date.
         h3 Required Query Parameters
         p apikey | string | Valid API Key string supplied by LFUCG
-        p lastupdated | date | ex. 05-15-2017
+        p date | date | ex. 05-15-2017
         h3 Example
         p
           | Return police cases on or after May 11, 2017.
-        p https://lfucg-data.herokuapp.com/api/v1/police?lastupdated=05-11-2017
-      .panel
-        h2 /api/v1/waterservice/parcel
-        p Returns water service records for a parcel.
-        h3 Required Query Parameters
-        p apikey | string | Valid API Key string supplied by LFUCG
-        p id | string | ex. 40131950
-        h3 Example
-        p
-          | Return water service records for parcel 40131950. 
-        p https://lfucg-data.herokuapp.com/api/v1/waterservice/parcel?id=40131950
+        p https://lfucg-data.herokuapp.com/api/v1/police?apikey=APIKEY&date=05-11-2017
       .panel
         h2 /api/v1/waterservice
         p Returns water service records with a charge date or adjustment date on or after the supplied date.
@@ -46,6 +36,6 @@ html(lang='en')
         h3 Example
         p
           | Return water service records with a with a charge date or adjustment date on or after April 15, 2017. 
-        p https://lfucg-data.herokuapp.com/api/v1/waterservice?date=04-15-2017
+        p https://lfucg-data.herokuapp.com/api/v1/waterservice?apikey=APIKEY&date=04-15-2017
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js')
