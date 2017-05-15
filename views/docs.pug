@@ -17,35 +17,38 @@ html(lang='en')
     .container
       h1 LFUCG Data
       p Data enpoints for integration with LFUCG vendors. Base URL is https://lfucg-data.herokuapp.com.
-      h2 /api/v1/police
-      p Returns police cases that occured on or after a supplied date.
-      h3 Request Headers
-      p API-KEY | string | Valid API Key string supplied by LFUCG
-      h3 Query Parameters
-      p lastupdated | date | ex. 05-15-2017
-      h3 Example
-      p
-        | Return police cases on or after May 11, 2017.
-      p https://lfucg-data.herokuapp.com/api/v1/police?lastupdated=05-11-2017
-      h2 /api/v1/waterservice/parcel
-      p Returns water service records for a parcel.
-      h3 Request Headers
-      p API-KEY | string | Valid API Key string supplied by LFUCG
-      h3 Query Parameters
-      p id | string | ex. 40131950
-      h3 Example
-      p
-        | Return water service records for parcel 40131950. 
-      p https://lfucg-data.herokuapp.com/api/v1/waterservice/parcel?id=40131950
-      h2 /api/v1/waterservice/date
-      p Returns water service records with a charge date or adjustment date on or after the supplied date.
-      h3 Request Headers
-      p API-KEY | string | Valid API Key string supplied by LFUCG
-      h3 Query Parameters
-      p date | date | ex. 05-15-2017
-      h3 Example
-      p
-        | Return water service records with a with a charge date or adjustment date on or after April 15, 2017. 
-      p https://lfucg-data.herokuapp.com/api/v1/waterservice/date?date=04-15-2017
+      .panel
+        h2 /api/v1/police
+        p Returns police cases that occured on or after a supplied date.
+        h3 Request Headers
+        p API-KEY | string | Valid API Key string supplied by LFUCG
+        h3 Query Parameters
+        p lastupdated | date | ex. 05-15-2017
+        h3 Example
+        p
+          | Return police cases on or after May 11, 2017.
+        p https://lfucg-data.herokuapp.com/api/v1/police?lastupdated=05-11-2017
+      .panel
+        h2 /api/v1/waterservice/parcel
+        p Returns water service records for a parcel.
+        h3 Request Headers
+        p API-KEY | string | Valid API Key string supplied by LFUCG
+        h3 Query Parameters
+        p id | string | ex. 40131950
+        h3 Example
+        p
+          | Return water service records for parcel 40131950. 
+        p https://lfucg-data.herokuapp.com/api/v1/waterservice/parcel?id=40131950
+      .panel
+        h2 /api/v1/waterservice/date
+        p Returns water service records with a charge date or adjustment date on or after the supplied date.
+        h3 Request Headers
+        p API-KEY | string | Valid API Key string supplied by LFUCG
+        h3 Query Parameters
+        p date | date | ex. 05-15-2017
+        h3 Example
+        p
+          | Return water service records with a with a charge date or adjustment date on or after April 15, 2017. 
+        p https://lfucg-data.herokuapp.com/api/v1/waterservice/date?date=04-15-2017
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js')
