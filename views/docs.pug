@@ -14,7 +14,19 @@ html(lang='en')
       script(src='js/html5shiv.min.js')
       script(src='js/respond.min.js')
   body
-    h1 LFUCG Data
-    h3 End Points
+    .container
+      h1 LFUCG Data
+      p Data enpoints for integration with LFUCG vendors.
+      h2 /api/v1/police
+      p Returns police cases that occured on or after a supplied date.
+      h3 Request Headers
+      p API-KEY | string | Valid API Key string supplied by LFUCG
+      h3 Query Parameters
+      p lastupdated | date | ex. 05-15-2017
+      h3 Example
+      p
+        | Return police cases on or after May 11, 2017.
+      p https://lfucg-data.herokuapp.com/api/v1/police?lastupdated=05-11-2017
+
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js')
