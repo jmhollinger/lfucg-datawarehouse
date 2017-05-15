@@ -25,7 +25,7 @@ app.use(bodyParser.json({
     extended: false
 }));
 
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 
 app.get('/docs', function(req,res) {
 	res.render("docs")
