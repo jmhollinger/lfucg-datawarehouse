@@ -15,14 +15,13 @@ html(lang='en')
       script(src='js/respond.min.js')
   body
     .container
-      h1 LFUCG Data
+      h1 LFUCG Data Endpoints
       p Data enpoints for integration with LFUCG vendors. Base URL is https://lfucg-data.herokuapp.com.
       .panel
         h2 /api/v1/police
         p Returns police cases that occured on or after a supplied date.
-        h3 Request Headers
-        p API-KEY | string | Valid API Key string supplied by LFUCG
-        h3 Query Parameters
+        h3 Required Query Parameters
+        p apikey | string | Valid API Key string supplied by LFUCG
         p lastupdated | date | ex. 05-15-2017
         h3 Example
         p
@@ -31,24 +30,22 @@ html(lang='en')
       .panel
         h2 /api/v1/waterservice/parcel
         p Returns water service records for a parcel.
-        h3 Request Headers
-        p API-KEY | string | Valid API Key string supplied by LFUCG
-        h3 Query Parameters
+        h3 Required Query Parameters
+        p apikey | string | Valid API Key string supplied by LFUCG
         p id | string | ex. 40131950
         h3 Example
         p
           | Return water service records for parcel 40131950. 
         p https://lfucg-data.herokuapp.com/api/v1/waterservice/parcel?id=40131950
       .panel
-        h2 /api/v1/waterservice/date
+        h2 /api/v1/waterservice
         p Returns water service records with a charge date or adjustment date on or after the supplied date.
-        h3 Request Headers
-        p API-KEY | string | Valid API Key string supplied by LFUCG
-        h3 Query Parameters
+        h3 Required Query Parameters
+        p apikey | string | Valid API Key string supplied by LFUCG
         p date | date | ex. 05-15-2017
         h3 Example
         p
           | Return water service records with a with a charge date or adjustment date on or after April 15, 2017. 
-        p https://lfucg-data.herokuapp.com/api/v1/waterservice/date?date=04-15-2017
+        p https://lfucg-data.herokuapp.com/api/v1/waterservice?date=04-15-2017
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js')

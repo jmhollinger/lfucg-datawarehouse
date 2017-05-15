@@ -33,7 +33,7 @@ app.get('/docs', function(req,res) {
 
 //Police Cases by Date
 app.get('/api/v1/police', function(req, res) {
-   if (req.get("API_KEY") === process.env.API_KEY) {
+   if (req.query.apikey === process.env.API_KEY) {
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
             
             client.query({
@@ -56,8 +56,8 @@ app.get('/api/v1/police', function(req, res) {
 })
 
 //Water Service by Parcel
-app.get('/api/v1/waterservice/date', function(req, res) {
-   if (req.get("API_KEY") === process.env.API_KEY) {
+app.get('/api/v1/waterservice', function(req, res) {
+   if (req.query.apikey === process.env.API_KEY) {
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
             
             client.query({
@@ -82,7 +82,7 @@ app.get('/api/v1/waterservice/date', function(req, res) {
 
 //Water Service by Parcel
 app.get('/api/v1/waterservice/parcel', function(req, res) {
-   if (req.get("API_KEY") === process.env.API_KEY) {
+   if (req.query.apikey === process.env.API_KEY) {
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
             
             client.query({
