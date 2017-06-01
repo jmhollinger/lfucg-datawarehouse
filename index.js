@@ -31,6 +31,26 @@ app.get('/docs', function(req,res) {
 	res.render("docs")
 })
 
+//VPRC Cases
+app.get('/api/v1/vprc', function(req, res) {
+   
+    pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+            
+            client.query({
+                    text: 'SELECT * FROM vprc_cases;',
+                    values: []
+                },function(err, result) {
+                    done();
+                    if (err) {
+                        res.json({"success": false,"results": err});
+                    } else {
+                        res.json({"success" : true, "results" : result.rows});
+                    }
+                });
+    });
+
+})
+
 //Police Cases by Date
 app.get('/api/v1/police', function(req, res) {
    if (req.query.apikey === process.env.API_KEY) {

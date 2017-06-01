@@ -16,7 +16,16 @@ html(lang='en')
   body
     .container
       h1 LFUCG Data Endpoints
-      p Data enpoints for integration with LFUCG vendors. Base URL is https://lfucg-data.herokuapp.com.
+      p Data endpoints for integration with LFUCG vendors. Base URL is https://lfucg-data.herokuapp.com.
+      .panel
+        h2 /api/v1/vprc
+        p Returns vacant property review commission cases and their current status.
+        h3 Required Query Parameters
+        p No parameters
+        h3 Example
+        p
+          | Return all vprc cases.
+        p https://lfucg-data.herokuapp.com/api/v1/vprc
       .panel
         h2 /api/v1/police
         p Returns police cases that occured on or after a supplied date.
