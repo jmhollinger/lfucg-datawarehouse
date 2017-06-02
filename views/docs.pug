@@ -19,23 +19,41 @@ html(lang='en')
       p Data endpoints for integration with LFUCG vendors. Base URL is https://lfucg-data.herokuapp.com.
       .panel
         h2 /api/v1/vprc
-        p Returns vacant property review commission cases and their current status.
+        p Returns the current status of active vacant property review commission cases.
+        h3 Fields
+        p case_id | integer | Unique identifier of VPRC case.
+        p parcelid | string | Unique parcel identifier.
+        p address | string | Text of address.
+        p status | string | Current status of VPRC case (Identified, Eligible for Certification, Certified, Appealed, Watchlist) 
+        p status_date | date | Date of current status.
+        p lat | number | Latitude of case
+        p lng | number | Longitude of case.
         h3 Required Query Parameters
         p No parameters
         h3 Example
         p
           | Return all vprc cases.
-        p https://lfucg-data.herokuapp.com/api/v1/vprc
+        a(href="https://lfucg-data.herokuapp.com/api/v1/vprc") https://lfucg-data.herokuapp.com/api/v1/vprc
       .panel
         h2 /api/v1/police
-        p Returns police cases that occured on or after a supplied date.
+        p Returns police cases that were updated on or after a supplied date.
+        h3 Fields
+        p case_id | string | Unique identifier of police case.
+        p incident_date | date | Date of incident.
+        p case_type | string | Type of case.
+        p address | string | Text of address.
+        p address_type | string | Type of address.
+        p last_updated | timestamp | Timestamp when data was last updated.
+        p lat | number | Latitude of case
+        p lng | number | Longitude of case.
+        p geocode_status | string | Geocoding match status of case (M = Matched, T = Tied, U = Unmatched)
         h3 Required Query Parameters
         p apikey | string | Valid API Key string supplied by LFUCG
         p date | date | ex. 05-15-2017
         h3 Example
         p
           | Return police cases on or after May 11, 2017.
-        p https://lfucg-data.herokuapp.com/api/v1/police?apikey=APIKEY&date=05-11-2017
+        a(href="https://lfucg-data.herokuapp.com/api/v1/police?apikey=APIKEY&date=05-11-2017") https://lfucg-data.herokuapp.com/api/v1/police?apikey=APIKEY&date=05-11-2017
       .panel
         h2 /api/v1/waterservice
         p Returns last date of water usage by meter.
@@ -51,6 +69,6 @@ html(lang='en')
         h3 Example
         p
           | Return last date of water usage for all meters.
-        p https://lfucg-data.herokuapp.com/api/v1/waterservice
+        a(href="https://lfucg-data.herokuapp.com/api/v1/waterservice") https://lfucg-data.herokuapp.com/api/v1/waterservice
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js')
