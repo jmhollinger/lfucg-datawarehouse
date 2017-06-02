@@ -77,12 +77,11 @@ app.get('/api/v1/police', function(req, res) {
 
 //Water Service by Parcel
 app.get('/api/v1/waterservice', function(req, res) {
-   if (req.query.apikey === process.env.API_KEY) {
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
             
             client.query({
-                    text: 'SELECT kawc.address, kawc.unit, kawc.parcelid, kawc.kawc_premise_id, water_bills.name, water_bills.account_status, water_bills.charge_date, water_bills.billed_consump, water_bills.adjustment_date, water_bills.consump_adj,kawc.lat, kawc.lng FROM kawc INNER JOIN water_bills on kawc.kawc_premise_id = water_bills.kawc_premise_id WHERE charge_date >= $1 OR adjustment_date >= $1 ORDER BY kawc.kawc_premise_id, charge_date DESC',
-                    values: [req.query.date]
+                    text: 'SELECT * FROM max_water_service ORDER By last_usage DESC',
+                    values: []
                 },function(err, result) {
                     done();
                     if (err) {
@@ -92,11 +91,7 @@ app.get('/api/v1/waterservice', function(req, res) {
                     }
                 });
     });
-    }
-
-    else {
-        res.json({"success" : "false", "results" : "API Key is invalid."})
-    }
+    
 })
 
 

@@ -38,13 +38,19 @@ html(lang='en')
         p https://lfucg-data.herokuapp.com/api/v1/police?apikey=APIKEY&date=05-11-2017
       .panel
         h2 /api/v1/waterservice
-        p Returns water service records with a charge date or adjustment date on or after the supplied date.
+        p Returns last date of water usage by meter.
+        h3 Fields
+        p kawc_premise_id | integer | Unique identifier of water meter.
+        p address | string | Text of address.
+        p parcelid | string | Unique parcel identifier.
+        p last_usage | date | Date of last bill with more than zero usage. Records with a date of 1/1/2015 have no record of service since this system was developed.
+        p lat | number | Latitude of meter.
+        p lng | number | Longitude of meter.
         h3 Required Query Parameters
-        p apikey | string | Valid API Key string supplied by LFUCG
-        p date | date | ex. 05-15-2017
+        p No parameters
         h3 Example
         p
-          | Return water service records with a with a charge date or adjustment date on or after April 15, 2017. 
-        p https://lfucg-data.herokuapp.com/api/v1/waterservice?apikey=APIKEY&date=04-15-2017
+          | Return last date of water usage for all meters.
+        p https://lfucg-data.herokuapp.com/api/v1/waterservice
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js')
