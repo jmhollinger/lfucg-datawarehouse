@@ -100,7 +100,26 @@ app.get('/api/v1/waterservice/parcel', function(req, res) {
     }
 })
 
-//
+//Report Runner
+app.get('/waterreports', function(req,res) {
+    
+            client.query({
+                    text: 'SELECT DISTINCT kawc.address, kawc.parcelid FROM kawc WHERE kawc.address ILIKE $1 ORDER BY kawc.address ASC;',
+                    values: ['%' + req.query.q + '%']
+                },function(err, result) {
+                    done();
+                    if (err) {
+                        res.json({"success": false,"results": err});
+                    } else {
+                        res.render("reports/reportRunner", {
+                            searchTerm: req.query.q
+                            searchResults: result.rows
+                        })
+                    }
+                });
+})
+
+//Address Search
 app.get('/waterreports/address_search', function(req, res) {
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
             
