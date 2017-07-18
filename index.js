@@ -112,7 +112,7 @@ app.get('/waterreports', function(req,res) {
                         res.json({"success": false,"results": err});
                     } else {
                         res.render("reports/reportRunner", {
-                            searchTerm: req.query.q
+                            searchTerm: req.query.q,
                             searchResults: result.rows
                         })
                     }
