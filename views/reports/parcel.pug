@@ -1,0 +1,46 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='icon', href='../../favicon.ico')
+    title Water Service Data
+    link(rel='stylesheet', href='/css/parcelReport.css')
+  body
+    .page
+      h1 Water Service Report
+      ul.no-bullets
+        li Parcel No: #{parcelid}
+        li Address: #{address}
+      table.water
+        thead
+          tr
+            th Premise ID
+            th Parcel ID
+            th Address
+            th Account Name
+            th Account Status
+            th Charge Date
+            th Billed Consumption
+            th Adjustment Date
+            th Consumption Adjustment
+        tbody
+          for item in data
+            tr
+              td= item.kawc_premise_id
+              td= item.parcelid
+              td= item.address
+              td= item.name
+              td= item.account_status
+              td= item.charge_date
+              td= item.billed_consump
+              td= item.adjustment_date
+              td= item.consump_adj
+      if length == 0 
+        p.text-center.bold This parcel has no water service records.
+      else
+        p 
+      p.text-center  Monthly bills for accounts which are in bad standing or completely turned off will not appear in water service records, as no meter readings are taken for these accounts.

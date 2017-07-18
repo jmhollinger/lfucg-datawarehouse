@@ -1,0 +1,46 @@
+.bold{
+  font-weight: bold;
+}
+.page{
+  font-family: Arial, Verdana;
+  font-size: 11px;
+  width: 11in;
+  height: 8.5in;
+  padding: .5in;
+}
+
+.page h1 {
+  margin: 0px
+}
+
+table, td, th {    
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+td {
+	white-space: nowrap;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 5px;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.no-bullets {
+ padding-left: 0px;
+  margin-left: 0px;
+  list-style-type: none;
+}
