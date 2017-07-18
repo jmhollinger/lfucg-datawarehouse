@@ -18,7 +18,7 @@ html(lang='en')
       h1 Run a Water Report
         form(method='get').form-inline
             .form-group
-              input#search.form-control(type='text', id="q" value='searchTerm' placeholder='232 Taylor Dr')
+              input#q.form-control(type='text' value= searchTerm placeholder='232 Taylor Dr')
               button.btn.btn-default(type='submit') Search    
         h3 Search Results
           for item in searchResults
