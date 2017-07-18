@@ -197,3 +197,13 @@ var server = app.listen(process.env.PORT || 3000, function() {
     var port = server.address().port;
     console.log('App listening at http://%s:%s', host, port);
 });
+
+//Helper Functions
+function formatDate(input, format){
+if (input) {
+  return moment(input).format(format)
+}
+else {
+  return ''
+}
+}
