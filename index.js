@@ -105,8 +105,8 @@ app.get('/waterreports/address_search', function(req, res) {
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
             
             client.query({
-                    text: 'SELECT DISTINCT kawc.address, kawc.parcelid FROM kawc WHERE kawc.address ILIKE $1 ORDER BY kawc.address ASC',
-                    values: ['\'%' + req.query.q + '%\'']
+                    text: 'SELECT DISTINCT kawc.address, kawc.parcelid FROM kawc WHERE kawc.address ILIKE $1 ORDER BY kawc.address ASC;',
+                    values: ['%' + req.query.q + '%']
                 },function(err, result) {
                     done();
                     if (err) {
