@@ -158,6 +158,7 @@ app.get('/reports/parcel/:parcelid', function (req, res) {
                                                   }
                         }
 
+                        pg.connect(process.env.DATABASE_URL, function(err, client, done) {
             client.query({
                     text: 'SELECT kawc.address FROM kawc WHERE kawc.parcelid = $1;',
                     values: [req.params.parcelid]
