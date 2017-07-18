@@ -6,10 +6,21 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     meta(name='description', content='')
     meta(name='author', content='')
-    link(rel='icon', href='../../favicon.ico')
-    title Water Service Data
-    link(rel='stylesheet', href='/css/parcelReport.css')
+    link(rel='icon', href='')
+    title LFUCG Data - Docs
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css')
+    link(href='https://fonts.googleapis.com/css?family=Montserrat:400,700', rel='stylesheet', type='text/css')
+    //if lt IE 9
+      script(src='js/html5shiv.min.js')
+      script(src='js/respond.min.js')
   body
-    for item in searchResults
-      a(href='https://lfucg-data.herokuapp.com/waterreports/parcel/' + item.parcelid) #{item.address}
-  
+    .container
+      h1 Run a Water Report
+        form(action='', method='get').form-inline
+            .form-group
+              input#search.form-control(type='email', placeholder='232 Taylor Dr')
+              button.btn.btn-default(type='submit') Search    
+        h3 Search Results
+          for item in searchResults
+            p
+              a(href='https://lfucg-data.herokuapp.com/waterreports/parcel/' + item.parcelid) #{item.address}
